@@ -6,7 +6,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 @Controller
 public class MainController {
-    @GetMapping({ "/" })
+    @GetMapping({ "/" }) // 관리자,일반사용자 접속가능
     public ModelAndView main(ModelAndView modelAndView) {
         String viewName = "/WEB-INF/views/main.jsp";
         modelAndView.setViewName(viewName);
