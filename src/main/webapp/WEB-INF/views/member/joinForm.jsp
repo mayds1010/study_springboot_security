@@ -23,8 +23,8 @@
   <body>
     <div class="container">
       <!-- 스프링 프레임워크에 필터부분(건드릴필요없음) -->
-      <form class="form-signin" method="post" action="/login">
-        <h2 class="form-signin-heading">We Made Please sign in</h2>
+      <form class="form-signin" method="post" action="/joinProc">
+        <h2 class="form-signin-heading">Please sign in</h2>
         <p>
           <label for="username" class="sr-only">Username</label>
           <input
@@ -48,12 +48,11 @@
             required=""
           />
         </p>
-         <%-- 보안에 관한 post 사용안할거임--%>
-        <%-- <input
+        <input
           name="_csrf"
           type="hidden"
           value="ff54f969-1ad4-4daf-acc4-8d6407e6a9da"
-        /> --%>
+        />
         <button class="btn btn-lg btn-primary btn-block" type="submit">
           Sign in
         </button>
