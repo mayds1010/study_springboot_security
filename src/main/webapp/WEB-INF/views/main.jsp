@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
   </head>
-  <body>
+<body>
     <div>Main</div>
     <hr />
     <div>Spring Security Area</div>
@@ -16,16 +16,19 @@
     <div> userDetails : ${userDetailsBean} </div>
     <%-- 로그인이 필요한 상태 --%>
     <sec:authorize access="isAnonymous()">
-      <div>
-        <a href="/loginForm">Login</a>
-      </div>
+        <div>
+            <a href="/loginForm">Login</a>
+        </div>
+        <div>
+            <a href="/joinForm">Join Form</a>
+        </div>
     </sec:authorize>
     <%-- 로그인이 된 상태 --%>
     <sec:authorize access="isAuthenticated()">
-         <div>
-       ${userDetailsBean.username},  <a href="/logoutForm">Logout Form</a>
-         </div>
+        <div> 
+            ${userDetailsBean.username}, <a href="/logoutForm">Logout Form</a>
+        </div>
     </sec:authorize>
     <hr />
-  </body>
+</body>
 </html>
