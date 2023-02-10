@@ -11,9 +11,9 @@ public class MainController {
     @GetMapping({ "/" }) // 관리자,일반사용자 접속가능
     public ModelAndView main(ModelAndView modelAndView) {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
-
+        // UserDetails은 Bean과 같음
         String username = null;
-        if (principal instanceof UserDetails) { // 로그인이 되어 있을땐 UserDetails
+        if (principal instanceof UserDetails) { // 로그인이 되어 있을땐 UserDetails = getPrincipal
             username = ((UserDetails) principal).getUsername();
         } else {
             username = principal.toString(); // 로그인 안되어 있음 toString

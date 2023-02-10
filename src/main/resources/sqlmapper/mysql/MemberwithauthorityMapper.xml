@@ -5,8 +5,9 @@
 		resultType="Map">
 		SELECT * 
 		FROM MEMBER_WITH_AUTHORITY
-		where 1 = 1
+		where 1 = 1 	<!-- where을 쓰면 and조건 많이 써도 됨  -->
 		and MEMBER_ID = #{username} 
+	
 	</select>
 	<insert id="insertWithUID" parameterType="Map">
 		insert into MEMBER_WITH_AUTHORITY 
@@ -18,3 +19,4 @@
 
 	</insert>
 </mapper>
+<!--  -->

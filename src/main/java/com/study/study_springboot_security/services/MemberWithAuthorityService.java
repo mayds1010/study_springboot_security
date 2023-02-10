@@ -19,9 +19,9 @@ public class MemberWithAuthorityService {
     CommonUtils commonUtils;
 
     @Autowired
-    BCryptPasswordEncoder bcryptPasswordEncoder;
+    BCryptPasswordEncoder bcryptPasswordEncoder; // 비밀번호를 암호화하는데 사용
 
-    public Object insert(Object dataMap) {
+    public Object insert(Object dataMap) { // 회원가입
         String sqlMapId = "Memberwithauthority.insertWithUID";
         ((Map) dataMap).put("USERS_UID", commonUtils.getUniqueSequence());
         ((Map) dataMap).put("role", "ROLE_USER");
