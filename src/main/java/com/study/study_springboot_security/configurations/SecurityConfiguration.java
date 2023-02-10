@@ -9,7 +9,7 @@ import org.springframework.security.web.SecurityFilterChain;
 public class SecurityConfiguration {
     @Bean // 기본로그인하고싶으면 bean주석처리
     public SecurityFilterChain filterChain(HttpSecurity httpSecurity) throws Exception {
-        // None using csrf protecton jsp에 있던거
+        // None using csrf protecton , jsp에 있던거 여기다 기입
         httpSecurity.csrf().disable();
         // 권한에 대한 부분 : url & roles : user url & roles
         // url, roles from Dao
