@@ -18,6 +18,8 @@ public class SecurityConfiguration {
                 // .antMatchers("/").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
                 // .antMatchers("/admin").access("hasRole('ROLE_ADMIN')") //(access)로그인 & 권한체크
                 .antMatchers("/admin").authenticated() // 로그인 여부만 판단 ,기억하고 있음
+                .antMatchers("/manager/*").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MANAGER')")
+                .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')") // 모두 가능
                 .anyRequest().permitAll(); // (permitAll) 설정한 URL 이외는 접근 가능.(로그인 & 로그아웃)
 
         // 로그인에 대한 부분
