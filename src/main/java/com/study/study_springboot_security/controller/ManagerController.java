@@ -9,7 +9,7 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class ManagerController {
 
-    @GetMapping({ "/admin/*" }) // (ROLE_ADMIN)최고 권한자
+    @GetMapping({ "/admin/*" }) // ROLE_ADMIN
     public ModelAndView admin(ModelAndView modelAndView) {
         String viewName = "/WEB-INF/views/admin/read.jsp";
         modelAndView.setViewName(viewName);

@@ -15,13 +15,12 @@ public class SecurityConfiguration {
         // 권한에 대한 부분 : url & roles : user url & roles
         // url, roles from Dao
         httpSecurity.authorizeRequests()
-                // .antMatchers("/").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
-                // .antMatchers("/admin").access("hasRole('ROLE_ADMIN')") //(access)로그인 & 권한체크
-                .antMatchers("/admin").authenticated() // 로그인 여부만 판단 ,기억하고 있음
+                // .antMatchers("/").authenticated() // 로그인 여부만 판단.
+                // .antMatchers("/admin").access("hasRole('ROLE_ADMIN')") // 로그인 & 권한
+                .antMatchers("/admin").authenticated()
                 .antMatchers("/manager/*").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MANAGER')")
-                .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')") // 모두 가능
-                .anyRequest().permitAll(); // (permitAll) 설정한 URL 이외는 접근 가능.(로그인 & 로그아웃)
-
+                .antMatchers("/admin/*").access("hasRole('ROLE_ADMIN')")
+                .anyRequest().permitAll(); // 설정한 URL 이외는 접근 가능(로그인 & 로그아웃).
         // 로그인에 대한 부분
         httpSecurity.formLogin().loginPage("/loginForm") // 로그인안됐을때 로그인할 수 있게끔
                 .failureUrl("/loginForm?fail=true")
