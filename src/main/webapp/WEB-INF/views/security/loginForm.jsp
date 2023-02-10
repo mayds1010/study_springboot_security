@@ -1,3 +1,5 @@
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <html lang="en">
   <head>
     <meta charset="utf-8" />
@@ -23,6 +25,10 @@
   <body>
     <div class="container">
       <!-- 스프링 프레임워크에 필터부분(건드릴필요없음) -->
+      <%-- param에 들어있는 값 fail --%>
+      <c:if test="${not empty param.fail}">
+        <div><font color="red"> Login Fail ! </font></div> 
+       </c:if>
       <form class="form-signin" method="post" action="/login">
         <h2 class="form-signin-heading">We Made Please sign in</h2>
         <p>
@@ -35,6 +41,7 @@
             placeholder="Username"
             required=""
             autofocus=""
+             value="test_01"
           />
         </p>
         <p>
@@ -46,6 +53,7 @@
             class="form-control"
             placeholder="Password"
             required=""
+            value="1234"
           />
         </p>
          <%-- 보안에 관한 post 사용안할거임--%>

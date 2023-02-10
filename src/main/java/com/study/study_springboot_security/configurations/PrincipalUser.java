@@ -1,36 +1,51 @@
 package com.study.study_springboot_security.configurations;
 
+import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Map;
 
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 public class PrincipalUser implements UserDetails { // PrincipalUser는 로그인에 관한거임
     // 소스액션하고 return false를 true로 바꾸기
 
     private Map userInfo;
+    private String memberName;
+
+    public Map getUserInfo() {
+        return userInfo;
+    }
+
+    public String getMemberName() {
+        return memberName;
+    }
 
     public PrincipalUser(Map userInfo) {
         this.userInfo = userInfo;
+        int i = 1;
+        this.memberName = (String) userInfo.get("NAME");
     }
 
     @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        // TODO Auto-generated method stub
-        return null;
+    public Collection<GrantedAuthority> getAuthorities() {
+        // 권한들
+        Collection<GrantedAuthority> collections = new ArrayList<>();
+        collections.add(new SimpleGrantedAuthority((String) userInfo.get("AUTHORITY")));
+        return collections;
     }
 
     @Override
     public String getPassword() {
-        // TODO Auto-generated method stub
-        return null;
+        // PASSWORD
+        return (String) userInfo.get("PASSWORD");
     }
 
     @Override
     public String getUsername() {
-        // TODO Auto-generated method stub
-        return null;
+        // ID
+        return (String) userInfo.get("MEMBER_ID"); // 매퍼
     }
 
     @Override
